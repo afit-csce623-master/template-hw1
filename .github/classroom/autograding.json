@@ -2,7 +2,7 @@
   "tests": [
     {
       "name": "hw test",
-      "setup": "sudo -H pip3 install testbook; sudo apt-get install -y python3-ipykernel; sudo -H pip3 install pytest; sudo -H pip3 install pandas matplotlib sklearn",
+      "setup": "sudo -H pip3 install testbook pytest pandas matplotlib sklearn seaborn; sudo apt-get install -y python3-ipykernel;",
       "run": "pytest",
       "input": "",
       "output": "",
