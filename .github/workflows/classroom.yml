@@ -14,4 +14,3 @@
               restore-keys: |
                 ${{ runner.os }}-pip-
           - uses: actions/checkout@v2
-          - uses: education/autograding@v1
