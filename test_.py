@@ -1,7 +1,7 @@
 import pytest
 import hashlib
 import json
-import matplotlib
+import numpy as np
 from testbook import testbook
 
 @pytest.fixture(scope='module')
