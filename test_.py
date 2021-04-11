@@ -167,9 +167,10 @@ def test_step_14(tb):
 def test_step_15(tb):
   try:
     complete = None
-    complete = tb.ref('STEP_15_COMPLETE').resolve()
+    complete = tb.ref('STEP_15_COMPLETE')
+    print(complete)
   except:
     # STEP_15_COMPLETE constant has been removed, set to true
     complete = True
   finally:
-    assert complete, 'STEP 15: not complete.'    
+    assert False, 'STEP 15: not complete.'    
