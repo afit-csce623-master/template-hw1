@@ -172,4 +172,4 @@ def test_step_15(tb):
     # STEP_15_COMPLETE constant has been removed, set to true
     complete = True
   finally:
-    assert complete, 'STEP 15: not complete.'    
+    assert False, 'STEP 15: not complete.'    
