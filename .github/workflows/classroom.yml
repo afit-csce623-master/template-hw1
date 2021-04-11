@@ -15,10 +15,8 @@
                 ${{ runner.os }}-pip-
                 
           - name: Install Dependencies
-            run: npm install
-            
-          - name: Build
-            run: npm build
+            run: |
+              pip install --upgrade --upgrade-strategy eager -r requirements.text -e .
             
           - uses: actions/checkout@v2
           
