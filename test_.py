@@ -154,10 +154,16 @@ def test_step_13(tb):
     assert complete, 'STEP 13: not complete.'    
     
   tb.execute_cell('step13')
-  print(tb.ref('beta0'))
+  beta0 = tb.ref('beta0'))
+  assert np.isclose(beta0, 39.93586102117047), 'STEP 13: The value for beta0 is incorrect'
   print(tb.ref('beta1'))
   print(tb.ref('r2'))
   print(tb.ref('mse'))
+  
+#     39.93586102117047
+#   'array([-0.15784473])'
+#   0.6059482578894348
+#   23.943662938603108
   assert False
     
 def test_step_14(tb):
