@@ -2,7 +2,6 @@
   "tests": [
     {
       "name": "hw test",
-      "setup": "sudo apt-get install -y python3-ipykernel;",
       "run": "pytest",
       "input": "",
       "output": "",
