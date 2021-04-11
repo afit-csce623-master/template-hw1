@@ -16,7 +16,7 @@
                 
           - name: Install Dependencies
             run: |
-              pip install --upgrade --upgrade-strategy eager -r requirements.text -e .
+              pip install .
             
           - uses: actions/checkout@v2
           
