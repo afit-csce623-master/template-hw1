@@ -153,6 +153,12 @@ def test_step_13(tb):
   finally:
     assert complete, 'STEP 13: not complete.'    
     
+  tb.execute_cell('step13')
+  print(tb.ref('beta0'))
+  print(tb.ref('beta1'))
+  print(tb.ref('r2'))
+  print(tb.ref('mse'))
+  assert False
     
 def test_step_14(tb):
   try:
@@ -174,7 +180,3 @@ def test_step_15(tb):
     complete = True
   finally:
     assert complete, 'STEP 15: not complete.' 
-    
-  tb.execute_cell('step15a')
-  print(matplotlib.axes.Axes.get_xlabel())
-  assert False
