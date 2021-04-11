@@ -13,7 +13,7 @@ def test_step_1(tb):
   
   try:
     complete = None
-    complete = tb.ref('STEP_1_COMPLETE').resolve()
+    complete = tb.ref('STEP_1_COMPLETE')
   except:
     # STEP_1_COMPLETE constant has been removed, set to true
     complete = True
@@ -24,7 +24,7 @@ def test_step_1(tb):
 def test_step_2(tb):
   try:
     complete = None
-    complete = tb.ref('STEP_2_COMPLETE').resolve()
+    complete = tb.ref('STEP_2_COMPLETE')
   except:
     # STEP_2_COMPLETE constant has been removed, set to true
     complete = True
@@ -35,7 +35,7 @@ def test_step_2(tb):
 def test_step_3(tb):
   try:
     complete = None
-    complete = tb.ref('STEP_3_COMPLETE').resolve()
+    complete = tb.ref('STEP_3_COMPLETE')
   except:
     # STEP_3_COMPLETE constant has been removed, set to true
     complete = True
@@ -46,7 +46,7 @@ def test_step_3(tb):
 def test_step_4(tb):
   try:
     complete = None
-    complete = tb.ref('STEP_4_COMPLETE').resolve()
+    complete = tb.ref('STEP_4_COMPLETE')
   except:
     # STEP_4_COMPLETE constant has been removed, set to true
     complete = True
@@ -57,7 +57,7 @@ def test_step_4(tb):
 def test_step_5(tb):
   try:
     complete = None
-    complete = tb.ref('STEP_5_COMPLETE').resolve()
+    complete = tb.ref('STEP_5_COMPLETE')
   except:
     # STEP_5_COMPLETE constant has been removed, set to true
     complete = True
@@ -68,7 +68,7 @@ def test_step_5(tb):
 def test_step_6(tb):
   try:
     complete = None
-    complete = tb.ref('STEP_6_COMPLETE').resolve()
+    complete = tb.ref('STEP_6_COMPLETE')
   except:
     # STEP_6_COMPLETE constant has been removed, set to true
     complete = True
@@ -79,7 +79,7 @@ def test_step_6(tb):
 def test_step_7(tb):
   try:
     complete = None
-    complete = tb.ref('STEP_7_COMPLETE').resolve()
+    complete = tb.ref('STEP_7_COMPLETE')
   except:
     # STEP_7_COMPLETE constant has been removed, set to true
     complete = True
@@ -90,7 +90,7 @@ def test_step_7(tb):
 def test_step_8(tb):
   try:
     complete = None
-    complete = tb.ref('STEP_8_COMPLETE').resolve()
+    complete = tb.ref('STEP_8_COMPLETE')
   except:
     # STEP_8_COMPLETE constant has been removed, set to true
     complete = True
@@ -101,7 +101,7 @@ def test_step_8(tb):
 def test_step_9(tb):
   try:
     complete = None
-    complete = tb.ref('STEP_9_COMPLETE').resolve()
+    complete = tb.ref('STEP_9_COMPLETE')
   except:
     # STEP_9_COMPLETE constant has been removed, set to true
     complete = True
@@ -112,7 +112,7 @@ def test_step_9(tb):
 def test_step_10(tb):
   try:
     complete = None
-    complete = tb.ref('STEP_10_COMPLETE').resolve()
+    complete = tb.ref('STEP_10_COMPLETE')
   except:
     # STEP_10_COMPLETE constant has been removed, set to true
     complete = True
@@ -123,7 +123,7 @@ def test_step_10(tb):
 def test_step_11(tb):
   try:
     complete = None
-    complete = tb.ref('STEP_11_COMPLETE').resolve()
+    complete = tb.ref('STEP_11_COMPLETE')
   except:
     # STEP_11_COMPLETE constant has been removed, set to true
     complete = True
@@ -134,7 +134,7 @@ def test_step_11(tb):
 def test_step_12(tb):
   try:
     complete = None
-    complete = tb.ref('STEP_12_COMPLETE').resolve()
+    complete = tb.ref('STEP_12_COMPLETE')
   except:
     # STEP_12_COMPLETE constant has been removed, set to true
     complete = True
@@ -145,7 +145,7 @@ def test_step_12(tb):
 def test_step_13(tb):
   try:
     complete = None
-    complete = tb.ref('STEP_13_COMPLETE').resolve()
+    complete = tb.ref('STEP_13_COMPLETE')
   except:
     # STEP_13_COMPLETE constant has been removed, set to true
     complete = True
@@ -156,7 +156,7 @@ def test_step_13(tb):
 def test_step_14(tb):
   try:
     complete = None
-    complete = tb.ref('STEP_14_COMPLETE').resolve()
+    complete = tb.ref('STEP_14_COMPLETE')
   except:
     # STEP_14_COMPLETE constant has been removed, set to true
     complete = True
