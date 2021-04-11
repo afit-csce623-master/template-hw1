@@ -5,4 +5,4 @@ sklearn==0.0
 seaborn==0.11.1
 pytest==4.6.1
 testbook==0.4.0
-python3-ipython==7.13.0
+ipython==7.13.0
