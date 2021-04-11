@@ -175,5 +175,5 @@ def test_step_15(tb):
     assert complete, 'STEP 15: not complete.' 
     
   tb.execute_cell('step15a')
-  print(plt.get_xlabel)
+  print(matplotlib.axes.Axes.get_xlabel())
   assert False
