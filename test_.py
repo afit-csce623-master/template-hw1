@@ -114,64 +114,64 @@ def test_step_8(tb):
     assert complete, 'STEP 8: not complete.'    
     
     
-def test_step_9(tb):
-  try:
-    complete = None
-    complete = tb.ref('STEP_9_COMPLETE')
-  except:
-    # STEP_9_COMPLETE constant has been removed, set to true
-    complete = True
-  finally:
-    assert complete, 'STEP 9: not complete.' 
+# def test_step_9(tb):
+#   try:
+#     complete = None
+#     complete = tb.ref('STEP_9_COMPLETE')
+#   except:
+#     # STEP_9_COMPLETE constant has been removed, set to true
+#     complete = True
+#   finally:
+#     assert complete, 'STEP 9: not complete.' 
     
-  tb.inject(
-    """
-    try:
-      betas = computeBetas(df.horsepower, df.mpg)
-    except Exception as e:
-      if hasattr(e, 'message'):
-        assert False, 'computeBetas does not exist or returns an error. The error returned is "' + e.message + '".'
-      else:
-        assert False, 'computeBetas does not exist or returns an error. The error returned is "' + str(e) + '".'
-    """
-  )
-  tb.inject("assert isinstance(betas, np.ndarray), 'computeBetas returns ' + str(type(betas)) + '. It should return a numpy.ndarray.'")
-  tb.inject("assert betas.shape == (2,), 'computeBetas returns an array of the wrong shape. Verify that it returns a 1d array with 2 elements (2,).'")
-  tb.inject("assert np.isclose(betas[0], 39.935861), 'computeBetas function is incorrect. Check beta[0].'")
-  tb.inject("assert np.isclose(betas[1], -0.157845), 'computeBetas function is incorrect. Check beta[1].'")
-    
-    
-def test_step_10(tb):
-  try:
-    complete = None
-    complete = tb.ref('STEP_10_COMPLETE')
-  except:
-    # STEP_10_COMPLETE constant has been removed, set to true
-    complete = True
-  finally:
-    assert complete, 'STEP 10: not complete.'    
+#   tb.inject(
+#     """
+#     try:
+#       betas = computeBetas(df.horsepower, df.mpg)
+#     except Exception as e:
+#       if hasattr(e, 'message'):
+#         assert False, 'computeBetas does not exist or returns an error. The error returned is "' + e.message + '".'
+#       else:
+#         assert False, 'computeBetas does not exist or returns an error. The error returned is "' + str(e) + '".'
+#     """
+#   )
+#   tb.inject("assert isinstance(betas, np.ndarray), 'computeBetas returns ' + str(type(betas)) + '. It should return a numpy.ndarray.'")
+#   tb.inject("assert betas.shape == (2,), 'computeBetas returns an array of the wrong shape. Verify that it returns a 1d array with 2 elements (2,).'")
+#   tb.inject("assert np.isclose(betas[0], 39.935861), 'computeBetas function is incorrect. Check beta[0].'")
+#   tb.inject("assert np.isclose(betas[1], -0.157845), 'computeBetas function is incorrect. Check beta[1].'")
     
     
-def test_step_11(tb):
-  try:
-    complete = None
-    complete = tb.ref('STEP_11_COMPLETE')
-  except:
-    # STEP_11_COMPLETE constant has been removed, set to true
-    complete = True
-  finally:
-    assert complete, 'STEP 11: not complete.'    
+# def test_step_10(tb):
+#   try:
+#     complete = None
+#     complete = tb.ref('STEP_10_COMPLETE')
+#   except:
+#     # STEP_10_COMPLETE constant has been removed, set to true
+#     complete = True
+#   finally:
+#     assert complete, 'STEP 10: not complete.'    
     
     
-def test_step_12(tb):
-  try:
-    complete = None
-    complete = tb.ref('STEP_12_COMPLETE')
-  except:
-    # STEP_12_COMPLETE constant has been removed, set to true
-    complete = True
-  finally:
-    assert complete, 'STEP 12: not complete.'    
+# def test_step_11(tb):
+#   try:
+#     complete = None
+#     complete = tb.ref('STEP_11_COMPLETE')
+#   except:
+#     # STEP_11_COMPLETE constant has been removed, set to true
+#     complete = True
+#   finally:
+#     assert complete, 'STEP 11: not complete.'    
+    
+    
+# def test_step_12(tb):
+#   try:
+#     complete = None
+#     complete = tb.ref('STEP_12_COMPLETE')
+#   except:
+#     # STEP_12_COMPLETE constant has been removed, set to true
+#     complete = True
+#   finally:
+#     assert complete, 'STEP 12: not complete.'    
     
     
 def test_step_13(tb):
