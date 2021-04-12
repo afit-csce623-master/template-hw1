@@ -91,6 +91,12 @@ def test_step_6(tb):
   finally:
     assert complete, 'STEP 6: not complete.' 
     
+  try:
+    tb.ref('beta1min')
+  except:
+    assert False, 'STEP 6: beta1min does not exist'
+  assert abs(-0.158 - beta1min) < 0.01, 'Your beta1min value is not within 0.01 of the target beta1 minimum value. Try improving your beta1guess or reducing the distance between values in your beta1bracket array.' 
+    
     
 def test_step_7(tb):
   try:
