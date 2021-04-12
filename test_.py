@@ -24,35 +24,44 @@ def test_step_1(tb):
     complete = True
   finally:
     assert complete, 'STEP 1: not complete.'
+    
+  try:
+    tb.ref('df')
+  except:
+    assert False, 'STEP 1: df does not exist.'
+    
+  print(hashlib.md5(df).hexdigest())
+    
+  assert False
    
     
-def test_step_2(tb):
-  try:
-    complete = None
-    complete = tb.ref('STEP_2_COMPLETE')
-  except:
-    # STEP_2_COMPLETE constant has been removed, set to true
-    complete = True
-  finally:
-    assert complete, 'STEP 2: not complete.'
+# def test_step_2(tb):
+#   try:
+#     complete = None
+#     complete = tb.ref('STEP_2_COMPLETE')
+#   except:
+#     # STEP_2_COMPLETE constant has been removed, set to true
+#     complete = True
+#   finally:
+#     assert complete, 'STEP 2: not complete.'
     
     
-def test_step_3(tb):
-  try:
-    complete = None
-    complete = tb.ref('STEP_3_COMPLETE')
-  except:
-    # STEP_3_COMPLETE constant has been removed, set to true
-    complete = True
-  finally:
-    assert complete, 'STEP 3: not complete.'
+# def test_step_3(tb):
+#   try:
+#     complete = None
+#     complete = tb.ref('STEP_3_COMPLETE')
+#   except:
+#     # STEP_3_COMPLETE constant has been removed, set to true
+#     complete = True
+#   finally:
+#     assert complete, 'STEP 3: not complete.'
     
-  try:
-    beta1guess = tb.ref('beta1guess')
-  except:
-    assert False, 'STEP 3: beta1guess does not exist'
+#   try:
+#     beta1guess = tb.ref('beta1guess')
+#   except:
+#     assert False, 'STEP 3: beta1guess does not exist'
     
-  tb.inject("assert isinstance(beta1guess, float), 'STEP 3: beta1guess is a ' + str(type(beta1guess)) + '. It should be a float.'")
+#   tb.inject("assert isinstance(beta1guess, float), 'STEP 3: beta1guess is a ' + str(type(beta1guess)) + '. It should be a float.'")
 
     
 # def test_step_4(tb):
