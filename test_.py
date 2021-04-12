@@ -83,15 +83,15 @@ def test_step_5(tb):
   tb.inject(
     """
     try:
-      betas = rss1d(beta0init, 0.1, df.horsepower, df.mpg)
+      temp_rssbetas = rss1d(beta0init, 0.1, df.horsepower, df.mpg)
     except Exception as e:
       if hasattr(e, 'message'):
-        assert False, 'STEP 9: rss1d does not exist or returns an error when called with rss1d(beta0init, beta1bracket, df.horsepower, df.mpg). The error returned is "' + e.message + '".'
+        assert False, 'STEP 9: rss1d does not exist or returns an error when called with rss1d(beta0init, 0.1, df.horsepower, df.mpg). The error returned is "' + e.message + '".'
       else:
-        assert False, 'STEP 9: rss1d does not exist or returns an error when called with rss1d(beta0init, beta1bracket, df.horsepower, df.mpg). The error returned is "' + str(e) + '".'
+        assert False, 'STEP 9: rss1d does not exist or returns an error when called with rss1d(beta0init, 0.1, df.horsepower, df.mpg). The error returned is "' + str(e) + '".'
     """
   )
-#   tb.inject("assert isinstance(betas, np.ndarray), 'STEP 9: computeBetas returns ' + str(type(betas)) + '. It should return a numpy.ndarray.'")
+  tb.inject("assert isinstance(temp_rssbetas, float), 'STEP 9: rss1d(beta0init, 0.1, df.horsepower, df.mpg) returns ' + str(type(temp_rssbetas)) + '. It should return a float.'")
 #   tb.inject("assert betas.shape == (2,), 'STEP 9: computeBetas returns an array of the wrong shape. Verify that it returns a 1d array with 2 elements (2,).'")
 #   tb.inject("assert np.isclose(betas[0], 39.935861), 'STEP 9: computeBetas function is incorrect. Check beta[0].'")
 #   tb.inject("assert np.isclose(betas[1], -0.157845), 'STEP 9: computeBetas function is incorrect. Check beta[1].'")
