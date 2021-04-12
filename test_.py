@@ -90,10 +90,10 @@ def test_step_3(tb):
 #   finally:
 #     assert complete, 'STEP 5: not complete.'  
     
-  try:
-    beta1bracket = tb.ref('rss1d')
-  except:
-    assert False, 'STEP 5: rss1d does not exist'
+#   try:
+#     beta1bracket = tb.ref('rss1d')
+#   except:
+#     assert False, 'STEP 5: rss1d does not exist'
     
 #   tb.inject(
 #     """
