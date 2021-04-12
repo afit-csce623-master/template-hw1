@@ -47,34 +47,37 @@ def test_step_3(tb):
   finally:
     assert complete, 'STEP 3: not complete.'
     
-#   try
-#   beta1guess = tb.ref('beta1guess')
-#   tb.inject("assert isin
+  try:
+    beta1guess = tb.ref('beta1guess')
+  except:
+    assert False, 'STEP 3: beta1guess does not exist'
+    
+  tb.inject("assert isinstance(beta1guess, float), 'STEP 3: beta1guess is a ' + str(type(beta1bracket)) + '. It should be a float.'")
 
     
-def test_step_4(tb):
-  try:
-    complete = None
-    complete = tb.ref('STEP_4_COMPLETE')
-  except:
-    # STEP_4_COMPLETE constant has been removed, set to true
-    complete = True
-  finally:
-    assert complete, 'STEP 4: not complete.'
+# def test_step_4(tb):
+#   try:
+#     complete = None
+#     complete = tb.ref('STEP_4_COMPLETE')
+#   except:
+#     # STEP_4_COMPLETE constant has been removed, set to true
+#     complete = True
+#   finally:
+#     assert complete, 'STEP 4: not complete.'
   
-  try:
-    beta1bracket = tb.ref('beta1bracket')
-  except:
-    assert False, 'STEP 4: beta1bracket does not exist'
+#   try:
+#     beta1bracket = tb.ref('beta1bracket')
+#   except:
+#     assert False, 'STEP 4: beta1bracket does not exist'
   
-  tb.inject("assert isinstance(beta1bracket, np.ndarray), 'STEP 4: beta1bracket is a ' + str(type(beta1bracket)) + '. It should be a np.ndarray.'")
-  tb.inject(
-    """
-    assert min(beta1bracket[0],beta1bracket[-1]) <= beta1guess <= max(beta1bracket[0],beta1bracket[-1]), \
-      'STEP 4: beta1bracket does not bracket the beta1guess. beta1bracket[0] is ' + str(beta1bracket[0]) + '. beta1bracket[-1] is ' + str(beta1bracket[1]) + \
-      '. beta1guess ' + str(beta1guess) + ' should be between beta1bracket[0] and beta1bracket[-1].'
-    """
-  )
+#   tb.inject("assert isinstance(beta1bracket, np.ndarray), 'STEP 4: beta1bracket is a ' + str(type(beta1bracket)) + '. It should be a np.ndarray.'")
+#   tb.inject(
+#     """
+#     assert min(beta1bracket[0],beta1bracket[-1]) <= beta1guess <= max(beta1bracket[0],beta1bracket[-1]), \
+#       'STEP 4: beta1bracket does not bracket the beta1guess. beta1bracket[0] is ' + str(beta1bracket[0]) + '. beta1bracket[-1] is ' + str(beta1bracket[1]) + \
+#       '. beta1guess ' + str(beta1guess) + ' should be between beta1bracket[0] and beta1bracket[-1].'
+#     """
+#   )
 
     
 # def test_step_5(tb):
