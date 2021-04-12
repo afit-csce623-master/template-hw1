@@ -237,8 +237,6 @@ def test_step_13(tb):
     """
   )
   tb.inject("assert isinstance(mpg_hp_model, linear_model._base.LinearRegression), 'mpg_hp_model is not a Linear Regression model. Ensure that you are using the sklearn package.'")
-
-  tb.execute_cell('step13')
     
   try:
     beta0 = tb.ref('beta0')
