@@ -121,7 +121,12 @@ def test_step_9(tb):
     # STEP_9_COMPLETE constant has been removed, set to true
     complete = True
   finally:
-    assert complete, 'STEP 9: not complete.'    
+    assert complete, 'STEP 9: not complete.' 
+    
+  computeBetas = tb.ref('computeBetas')
+  df = pd.read_csv('https://raw.githubusercontent.com/afit-csce623-master/datasets/main/auto.csv', na_values='?') #classify ? as a character that means NaN
+  df.dropna(inplace=True)
+  print(computeBetas(df.horsepower, df.mpg)
     
     
 def test_step_10(tb):
@@ -199,22 +204,4 @@ def test_step_15(tb):
     complete = True
   finally:
     assert complete, 'STEP 15: not complete.' 
-    
-#   with assert_plot_figures_added():
-  tb.inject(
-    """
-    plt.close()
-    """
-  )
-  num_figures_before = tb.ref('plt.gcf()').number
-  tb.execute_cell('step15a')
-  num_figures_after = tb.ref('plt.gcf()').number
-#   xlabel = tb.ref('plt.gcf()').xlabel
-#   ylabel = tb.ref('plt.gcf()').ylabel
-  print(num_figures_before, num_figures_after)
-#     yield
-#     num_figures_after = tb.ref('plt.gcf()').number
-#     print(num_figures_before, num_figures_after)
-#     assert num_figures_before < num_figures_after  
-  assert False
   
