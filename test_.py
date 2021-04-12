@@ -114,64 +114,64 @@ def test_step_8(tb):
     assert complete, 'STEP 8: not complete.'    
     
     
-# def test_step_9(tb):
-#   try:
-#     complete = None
-#     complete = tb.ref('STEP_9_COMPLETE')
-#   except:
-#     # STEP_9_COMPLETE constant has been removed, set to true
-#     complete = True
-#   finally:
-#     assert complete, 'STEP 9: not complete.' 
+def test_step_9(tb):
+  try:
+    complete = None
+    complete = tb.ref('STEP_9_COMPLETE')
+  except:
+    # STEP_9_COMPLETE constant has been removed, set to true
+    complete = True
+  finally:
+    assert complete, 'STEP 9: not complete.' 
     
-#   tb.inject(
-#     """
-#     try:
-#       betas = computeBetas(df.horsepower, df.mpg)
-#     except Exception as e:
-#       if hasattr(e, 'message'):
-#         assert False, 'computeBetas does not exist or returns an error. The error returned is "' + e.message + '".'
-#       else:
-#         assert False, 'computeBetas does not exist or returns an error. The error returned is "' + str(e) + '".'
-#     """
-#   )
-#   tb.inject("assert isinstance(betas, np.ndarray), 'computeBetas returns ' + str(type(betas)) + '. It should return a numpy.ndarray.'")
-#   tb.inject("assert betas.shape == (2,), 'computeBetas returns an array of the wrong shape. Verify that it returns a 1d array with 2 elements (2,).'")
-#   tb.inject("assert np.isclose(betas[0], 39.935861), 'computeBetas function is incorrect. Check beta[0].'")
-#   tb.inject("assert np.isclose(betas[1], -0.157845), 'computeBetas function is incorrect. Check beta[1].'")
-    
-    
-# def test_step_10(tb):
-#   try:
-#     complete = None
-#     complete = tb.ref('STEP_10_COMPLETE')
-#   except:
-#     # STEP_10_COMPLETE constant has been removed, set to true
-#     complete = True
-#   finally:
-#     assert complete, 'STEP 10: not complete.'    
+  tb.inject(
+    """
+    try:
+      betas = computeBetas(df.horsepower, df.mpg)
+    except Exception as e:
+      if hasattr(e, 'message'):
+        assert False, 'STEP 9: computeBetas does not exist or returns an error. The error returned is "' + e.message + '".'
+      else:
+        assert False, 'STEP 9: computeBetas does not exist or returns an error. The error returned is "' + str(e) + '".'
+    """
+  )
+  tb.inject("assert isinstance(betas, np.ndarray), 'STEP 9: computeBetas returns ' + str(type(betas)) + '. It should return a numpy.ndarray.'")
+  tb.inject("assert betas.shape == (2,), 'STEP 9: computeBetas returns an array of the wrong shape. Verify that it returns a 1d array with 2 elements (2,).'")
+  tb.inject("assert np.isclose(betas[0], 39.935861), 'STEP 9: computeBetas function is incorrect. Check beta[0].'")
+  tb.inject("assert np.isclose(betas[1], -0.157845), 'STEP 9: computeBetas function is incorrect. Check beta[1].'")
     
     
-# def test_step_11(tb):
-#   try:
-#     complete = None
-#     complete = tb.ref('STEP_11_COMPLETE')
-#   except:
-#     # STEP_11_COMPLETE constant has been removed, set to true
-#     complete = True
-#   finally:
-#     assert complete, 'STEP 11: not complete.'    
+def test_step_10(tb):
+  try:
+    complete = None
+    complete = tb.ref('STEP_10_COMPLETE')
+  except:
+    # STEP_10_COMPLETE constant has been removed, set to true
+    complete = True
+  finally:
+    assert complete, 'STEP 10: not complete.'    
     
     
-# def test_step_12(tb):
-#   try:
-#     complete = None
-#     complete = tb.ref('STEP_12_COMPLETE')
-#   except:
-#     # STEP_12_COMPLETE constant has been removed, set to true
-#     complete = True
-#   finally:
-#     assert complete, 'STEP 12: not complete.'    
+def test_step_11(tb):
+  try:
+    complete = None
+    complete = tb.ref('STEP_11_COMPLETE')
+  except:
+    # STEP_11_COMPLETE constant has been removed, set to true
+    complete = True
+  finally:
+    assert complete, 'STEP 11: not complete.'    
+    
+    
+def test_step_12(tb):
+  try:
+    complete = None
+    complete = tb.ref('STEP_12_COMPLETE')
+  except:
+    # STEP_12_COMPLETE constant has been removed, set to true
+    complete = True
+  finally:
+    assert complete, 'STEP 12: not complete.'    
     
     
 def test_step_13(tb):
@@ -183,13 +183,7 @@ def test_step_13(tb):
     complete = True
   finally:
     assert complete, 'STEP 13: not complete.'    
-    
-  tb.execute_cell('step13')
-  beta0 = tb.ref('beta0')
-  beta1 = tb.ref('beta1')
-  r2 = tb.ref('r2')
-  mse = tb.ref('mse')
-
+  
   tb.inject(
     """
     if 'mpg_hp_model' not in locals():
@@ -197,9 +191,31 @@ def test_step_13(tb):
     """
   )
   tb.inject("assert isinstance(mpg_hp_model, linear_model._base.LinearRegression), 'mpg_hp_model is not a Linear Regression model. Ensure that you are using the sklearn package.'")
+
+  tb.execute_cell('step13')
+    
+  try:
+    beta0 = tb.ref('beta0')
+  except:
+    assert False, 'STEP 13: beta0 does not exist.'
   assert np.isclose(beta0, 39.93586102117047), 'STEP 13: The value for beta0 is incorrect'
+    
+  try:
+    beta1 = tb.ref('beta1')
+  except:
+    assert False, 'STEP 13: beta1 does not exist.'
   assert np.isclose(beta1[0], -0.15784473335365365), 'STEP 13: The value for beta1 is incorrect'
+
+  try:
+    r2 = tb.ref('r2')
+  except:
+    assert False, 'STEP 13: r2 does not exist.'
   assert np.isclose(r2, 0.6059482578894348), 'STEP 13: The value for r2 is incorrect'
+
+  try:
+    mse = tb.ref('mse')
+  except:
+    assert False, 'STEP 13: mse does not exist.'
   assert np.isclose(mse, 23.943662938603108), 'STEP 13: The value for mse is incorrect'
   
     
