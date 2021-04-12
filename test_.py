@@ -126,7 +126,8 @@ def test_step_9(tb):
   computeBetas = tb.ref('computeBetas')
   df = pd.read_csv('https://raw.githubusercontent.com/afit-csce623-master/datasets/main/auto.csv', na_values='?') #classify ? as a character that means NaN
   df.dropna(inplace=True)
-  print(computeBetas(df.horsepower, df.mpg))
+  betas = computeBetas(df.horsepower, df.mpg)
+  print(betas[0],betas[1])
   assert False
     
     
