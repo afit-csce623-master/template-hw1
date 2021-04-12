@@ -5,6 +5,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 from testbook import testbook
 
+
+@contextmanager
+def assert_plot_figures_added():
+    num_figures_before = plt.gcf().number
+    yield
+    num_figures_after = plt.gcf().number
+    print(num_figures_before, num_figures_after)
+    assert num_figures_before < num_figures_after
+    
+
 @pytest.fixture(scope='module')
 def tb():
   with testbook('hw1.ipynb', execute=True) as tb:
@@ -187,12 +197,8 @@ def test_step_15(tb):
   finally:
     assert complete, 'STEP 15: not complete.' 
     
-  num_figures_before = plt.gcf().number
-  tb.execute_cell('step15a')
-  num_figures_after = plt.gcf().number
-  assert num_figures_before < num_figures_after
-  
-  print(num_figures_before, num_figures_after)
-  
+  with assert_plot_figures__added():
+    tb.execute_cell('step15a')
+    
   assert False
   
