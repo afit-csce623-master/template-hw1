@@ -201,9 +201,10 @@ def test_step_15(tb):
     assert complete, 'STEP 15: not complete.' 
     
 #   with assert_plot_figures_added():
-  tb.execute_cell('step15a')
   num_figures_before = tb.ref('plt.gcf()').number
-  print(num_figures_before)
+  tb.execute_cell('step15a')
+  num_figures_after = tb.ref('plt.gcf()').number
+  print(num_figures_before, num_figures_after)
 #     yield
 #     num_figures_after = tb.ref('plt.gcf()').number
 #     print(num_figures_before, num_figures_after)
