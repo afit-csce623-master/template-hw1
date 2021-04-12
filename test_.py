@@ -7,15 +7,15 @@ import contextlib
 from testbook import testbook
 
 
-@contextlib.contextmanager
-def assert_plot_figures_added():
-    plt.close()
-    num_figures_before = tb.ref('plt.gcf()').number
-#     print(plt.gcf().xlabel, plt.gcf().ylabel)
-    yield
-    num_figures_after = tb.ref('plt.gcf()').number
-    print(num_figures_before, num_figures_after)
-    assert num_figures_before < num_figures_after
+# @contextlib.contextmanager
+# def assert_plot_figures_added():
+#     plt.close()
+#     num_figures_before = tb.ref('plt.gcf()').number
+# #     print(plt.gcf().xlabel, plt.gcf().ylabel)
+#     yield
+#     num_figures_after = tb.ref('plt.gcf()').number
+#     print(num_figures_before, num_figures_after)
+#     assert num_figures_before < num_figures_after
     
 
 @pytest.fixture(scope='module')
@@ -200,8 +200,13 @@ def test_step_15(tb):
   finally:
     assert complete, 'STEP 15: not complete.' 
     
-  with assert_plot_figures_added():
-    tb.execute_cell('step15a')
-    
+#   with assert_plot_figures_added():
+  tb.execute_cell('step15a')
+  num_figures_before = tb.ref('plt.gcf()').number
+  print(plt.gcf().xlabel, plt.gcf().ylabel)
+#     yield
+#     num_figures_after = tb.ref('plt.gcf()').number
+#     print(num_figures_before, num_figures_after)
+#     assert num_figures_before < num_figures_after  
   assert False
   
