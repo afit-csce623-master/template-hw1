@@ -26,7 +26,7 @@ def test_step_1(tb):
     assert complete, 'STEP 1: not complete.'
     
   try:
-    tb.ref('df')
+    df = tb.ref('df')
   except:
     assert False, 'STEP 1: df does not exist.'
     
