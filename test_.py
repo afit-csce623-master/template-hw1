@@ -9,6 +9,7 @@ from testbook import testbook
 
 @contextlib.contextmanager
 def assert_plot_figures_added():
+    plt.close()
     num_figures_before = plt.gcf().number
     yield
     num_figures_after = plt.gcf().number
