@@ -129,9 +129,9 @@ def test_step_9(tb):
       betas = computeBetas(df.horsepower, df.mpg)
     except Exception as e:
       if hasattr(e, 'message'):
-        assert False, 'computeBetas does not exist or returns an error. The error returned is ' + e.message + '.'
+        assert False, 'computeBetas does not exist or returns an error. The error returned is "' + e.message + '".'
       else:
-        assert False, 'computeBetas does not exist or returns an error. The error returned is ' + str(e) + '.'
+        assert False, 'computeBetas does not exist or returns an error. The error returned is "' + str(e) + '".'
     """
   )
   tb.inject("assert isinstance(betas, np.ndarray), 'computeBetas returns ' + type(betas) + ' it should return a numpy.ndarray.'")
