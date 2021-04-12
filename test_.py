@@ -134,7 +134,7 @@ def test_step_9(tb):
         assert False, 'computeBetas does not exist or returns an error. The error returned is "' + str(e) + '".'
     """
   )
-  tb.inject("assert isinstance(betas, np.ndarray), 'computeBetas returns ' + str(type(betas)) + ' it should return a numpy.ndarray.'")
+  tb.inject("assert isinstance(betas, np.ndarray), 'computeBetas returns ' + str(type(betas)). + ' It should return a numpy.ndarray.'")
   tb.inject("assert betas.shape == (2,), 'computeBetas returns an array of the wrong shape. Verify that it returns a 1d array with 2 elements (2,).'")
   tb.inject("assert np.isclose(betas[0], 39.935861), 'computeBetas function is incorrect. Check beta[0].'")
   tb.inject("assert np.isclose(betas[1], -0.157845), 'computeBetas function is incorrect. Check beta[1].'")
