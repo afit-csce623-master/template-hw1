@@ -11,6 +11,7 @@ from testbook import testbook
 def assert_plot_figures_added():
     plt.close()
     num_figures_before = plt.gcf().number
+    print(plt.gcf().xlabel, plt.gcf().ylabel)
     yield
     num_figures_after = plt.gcf().number
     print(num_figures_before, num_figures_after)
