@@ -30,7 +30,7 @@ def test_step_1(tb):
   except:
     assert False, 'STEP 1: df does not exist.'
     
-  assert hashlib.md5(df).hexdigest()) == 'affd27e4915d193ed6aaa90b650cde78', \
+  assert hashlib.md5(df).hexdigest() == 'affd27e4915d193ed6aaa90b650cde78', \
     'STEP 1: The dataframe df does not match the auto.csv file with NaN values removed. Be sure you are importing the correct file, ' \
     'and that you are removing the NaN values (indicated as "?" in auto.csv).'
    
