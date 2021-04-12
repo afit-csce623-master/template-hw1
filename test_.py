@@ -201,6 +201,11 @@ def test_step_15(tb):
     assert complete, 'STEP 15: not complete.' 
     
 #   with assert_plot_figures_added():
+  tb.inject(
+    """
+    plt.close()
+    """
+  )
   num_figures_before = tb.ref('plt.gcf()').number
   tb.execute_cell('step15a')
   num_figures_after = tb.ref('plt.gcf()').number
