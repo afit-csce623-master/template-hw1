@@ -46,6 +46,10 @@ def test_step_3(tb):
     complete = True
   finally:
     assert complete, 'STEP 3: not complete.'
+    
+#   try
+#   beta1guess = tb.ref('beta1guess')
+#   tb.inject("assert isin
 
     
 def test_step_4(tb):
@@ -57,7 +61,12 @@ def test_step_4(tb):
     complete = True
   finally:
     assert complete, 'STEP 4: not complete.'
-    
+  
+  try:
+    beta1bracket = tb.ref('beta1bracket')
+  except:
+    assert False, 'STEP 4: beta1bracket does not exist'
+  
   tb.inject("assert isinstance(beta1bracket, np.ndarray), 'STEP 4: beta1bracket is a ' + str(type(beta1bracket)) + '. It should be a np.ndarray.'")
   tb.inject(
     """
@@ -66,11 +75,7 @@ def test_step_4(tb):
       '. beta1guess ' + str(beta1guess) + ' should be between beta1bracket[0] and beta1bracket[-1].'
     """
   )
-#   beta1bracket = tb.ref('beta1bracket').resolve()
-#   assert isinstance(beta1bracket, np.ndarray), 'STEP 4: beta1bracket is a ' + str(type(beta1bracket)) + '. It should be a np.ndarray.'
-#   assert min(beta1bracket[0],beta1bracket[-1]) <= beta1guess <= (beta1bracket[0],beta1bracket[-1]), \
-#     'STEP 4: beta1bracket does not bracket the beta1guess. beta1bracket[0] is ' + beta1bracket[0] + '. beta1bracket[-1] is ' + beta1bracket[1] + \
-#     '. beta1guess ' + beta1guess + ' should be between beta1bracket[0] and beta1bracket[-1].'
+
     
 # def test_step_5(tb):
 #   try:
@@ -82,15 +87,20 @@ def test_step_4(tb):
 #   finally:
 #     assert complete, 'STEP 5: not complete.'  
     
+  try:
+    beta1bracket = tb.ref('rss1d')
+  except:
+    assert False, 'STEP 5: rss1d does not exist'
+    
 #   tb.inject(
 #     """
 #     try:
 #       temp_rssbetas = rss1d(40., 0.1, df.horsepower, df.mpg)
 #     except Exception as e:
 #       if hasattr(e, 'message'):
-#         assert False, 'STEP 9: rss1d does not exist or returns an error when called with rss1d(40., 0.1, df.horsepower, df.mpg). The error returned is "' + e.message + '".'
+#         assert False, 'STEP 9: rss1d returns an error when called with rss1d(40., 0.1, df.horsepower, df.mpg). The error returned is "' + e.message + '".'
 #       else:
-#         assert False, 'STEP 9: rss1d does not exist or returns an error when called with rss1d(40., 0.1, df.horsepower, df.mpg). The error returned is "' + str(e) + '".'
+#         assert False, 'STEP 9: rss1d returns an error when called with rss1d(40., 0.1, df.horsepower, df.mpg). The error returned is "' + str(e) + '".'
 #     """
 #   )
 #   tb.inject("assert isinstance(temp_rssbetas, float), 'STEP 9: rss1d(40., 0.1, df.horsepower, df.mpg) returns ' + str(type(temp_rssbetas)) + '. It should return a float.'")
