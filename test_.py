@@ -163,8 +163,6 @@ def test_step_13(tb):
   assert np.isclose(beta1[0], -0.15784473335365365), 'STEP 13: The value for beta1 is incorrect'
   assert np.isclose(r2, 0.6059482578894348), 'STEP 13: The value for r2 is incorrect'
   assert np.isclose(mse, 23.943662938603108), 'STEP 13: The value for mse is incorrect'
-
-  assert False
   
     
 def test_step_14(tb):
@@ -187,3 +185,8 @@ def test_step_15(tb):
     complete = True
   finally:
     assert complete, 'STEP 15: not complete.' 
+    
+  plt.close()
+  tb.execute_cell('step15a')
+  assert plt.gcf().number == 1
+  
