@@ -67,7 +67,11 @@ def test_step_4(tb):
     # STEP_4_COMPLETE constant has been removed, set to true
     complete = True
   finally:
-    assert complete, 'STEP 4: not complete.'   
+    assert complete, 'STEP 4: not complete.'
+    
+  beta1bracket = tb.ref('beta1bracket')
+  assert isinstance(beta1bracket, np.ndarray), 'STEP 4: beta1bracket is a ' + str(type(beta1bracket)) + '. It should be a np.ndarray.'
+  assert 
     
     
 def test_step_5(tb):
@@ -95,34 +99,6 @@ def test_step_5(tb):
   tb.inject("assert np.isclose(temp_rssbetas, 333689.2200000003), 'STEP 9: rss1d(40., 0.1, df.horsepower, df.mpg) returns the wrong value. Returned ' + temp_rssbetas + '. Should return 333689.2200000003.'")
   tb.inject("temp_rssbetas = rss1d(40., -0.1, df.horsepower, df.mpg)")
   tb.inject("assert np.isclose(temp_rssbetas, 25944.739999999998), 'STEP 9: rss1d(40., -0.1, df.horsepower, df.mpg) returns the wrong value. Returned ' + temp_rssbetas + '. Should return 25944.739999999998.'")
-
-#   tb.inject("assert betas.shape == (2,), 'STEP 9: computeBetas returns an array of the wrong shape. Verify that it returns a 1d array with 2 elements (2,).'")
-#   tb.inject("assert np.isclose(betas[0], 39.935861), 'STEP 9: computeBetas function is incorrect. Check beta[0].'")
-#   tb.inject("assert np.isclose(betas[1], -0.157845), 'STEP 9: computeBetas function is incorrect. Check beta[1].'")
-    
-#   try:
-#     rss1d = tb.ref('rss1d')
-#   except:
-#     assert False, 'STEP 5: rss1d does not exist'
-    
-#   try:
-#     beta1bracket = tb.ref('beta1bracket')
-#   except:
-#     assert False, 'STEP 5: beta1bracket does not exist'
-        
-  
-        
-#   try:
-#     rssbeta1 = rss1d(12., [0., 0.5, 1.0], [98., 12.], [72., 64.])
-#   except Exception as e:
-#     if hasattr(e, 'message'):
-#       assert False, 'STEP 5: rss1d does not exist or returns an error. The error returned is "' + e.message + '".'
-#     else:
-#       assert False, 'STEP 5: rss1d does not exist or returns an error. The error returned is "' + str(e) + '".'
-
-#   assert isinstance(rssbeta1, np.ndarray), 'STEP 5: rss1d returns ' + str(type(rssbeta1)) + '. It should return a numpy.ndarray.'
-#   assert rss1d(12., [0., 0.5, 1.0], [98., 12.], [72., 64.])
-#   assert rss1d.shape == beta1bracket.shape, 'STEP 5: 
     
     
 # def test_step_6(tb):
