@@ -88,7 +88,7 @@ def test_step_5(tb):
   try:
     beta1bracket = tb.ref('beta1bracket')
   except:
-    assert False: 'STEP 5: beta1bracket does not exist'
+    assert False, 'STEP 5: beta1bracket does not exist'
         
   try:
     rssbeta1 = rss1d(12., [0., 0.5, 1.0], [98., 12.], [72., 64.])
