@@ -6,17 +6,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn import datasets, linear_model
 from testbook import testbook
-
-
-# @contextlib.contextmanager
-# def assert_plot_figures_added():
-#     plt.close()
-#     num_figures_before = tb.ref('plt.gcf()').number
-# #     print(plt.gcf().xlabel, plt.gcf().ylabel)
-#     yield
-#     num_figures_after = tb.ref('plt.gcf()').number
-#     print(num_figures_before, num_figures_after)
-#     assert num_figures_before < num_figures_after
     
 
 @pytest.fixture(scope='module')
@@ -72,7 +61,7 @@ def test_step_4(tb):
   tb.inject("assert isinstance(beta1bracket, np.ndarray), 'STEP 4: beta1bracket is a ' + str(type(beta1bracket)) + '. It should be a np.ndarray.'")
   tb.inject(
     """
-    assert min(beta1bracket[0],beta1bracket[-1]) <= beta1guess <= (beta1bracket[0],beta1bracket[-1]), \
+    assert min(beta1bracket[0],beta1bracket[-1]) <= beta1guess <= max(beta1bracket[0],beta1bracket[-1]), \
       'STEP 4: beta1bracket does not bracket the beta1guess. beta1bracket[0] is ' + beta1bracket[0] + '. beta1bracket[-1] is ' + beta1bracket[1] + \
       '. beta1guess ' + beta1guess + ' should be between beta1bracket[0] and beta1bracket[-1].'
     """
