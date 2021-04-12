@@ -26,7 +26,7 @@ def test_step_1(tb):
     assert complete, 'STEP 1: not complete.'
     
   try:
-    df = tb.ref('df')
+    df = str(tb.ref('df')).encode('utf-8')
   except:
     assert False, 'STEP 1: df does not exist.'
     
