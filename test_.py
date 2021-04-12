@@ -195,7 +195,7 @@ def test_step_13(tb):
       assert False, 'mpg_hp_model does not exist. Be sure to declare mpg_hp_model as a sklearn Linear Regression model.'
     """
   )
-  tb.inject("assert isinstance(mpg_hp_model, sklearn.linear_model._base.LinearRegression), 'mpg_hp_model is not a Linear Regression model. Ensure that you are using the sklearn package.")
+  tb.inject("assert isinstance(mpg_hp_model, sklearn.linear_model._base.LinearRegression), 'mpg_hp_model is not a Linear Regression model. Ensure that you are using the sklearn package.'")
   assert np.isclose(beta0, 39.93586102117047), 'STEP 13: The value for beta0 is incorrect'
   assert np.isclose(beta1[0], -0.15784473335365365), 'STEP 13: The value for beta1 is incorrect'
   assert np.isclose(r2, 0.6059482578894348), 'STEP 13: The value for r2 is incorrect'
