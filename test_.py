@@ -80,6 +80,28 @@ def test_step_5(tb):
   finally:
     assert complete, 'STEP 5: not complete.'  
     
+  try:
+    rss1d = tb.ref('rss1d')
+  except:
+    assert False, 'STEP 5: rss1d does not exist'
+    
+  try:
+    beta1bracket = tb.ref('beta1bracket')
+  except:
+    assert False: 'STEP 5: beta1bracket does not exist'
+        
+  try:
+    rssbeta1 = rss1d(12., [0., 0.5, 1.0], [98., 12.], [72., 64.])
+  except Exception as e:
+    if hasattr(e, 'message'):
+      assert False, 'STEP 5: rss1d does not exist or returns an error. The error returned is "' + e.message + '".'
+    else:
+      assert False, 'STEP 5: rss1d does not exist or returns an error. The error returned is "' + str(e) + '".'
+
+  assert isinstance(rssbeta1, np.ndarray), 'STEP 5: rss1d returns ' + str(type(rssbeta1)) + '. It should return a numpy.ndarray.'")
+#   assert rss1d(12., [0., 0.5, 1.0], [98., 12.], [72., 64.])
+#   assert rss1d.shape == beta1bracket.shape, 'STEP 5: 
+    
     
 def test_step_6(tb):
   try:
@@ -95,7 +117,7 @@ def test_step_6(tb):
     beta1min = tb.ref('beta1min')
   except:
     assert False, 'STEP 6: beta1min does not exist'
-  assert abs(-0.158 - beta1min) < 0.01, 'Your beta1min value is not within 0.01 of the target beta1 minimum value. Try improving your beta1guess or reducing the distance between values in your beta1bracket array.' 
+  assert abs(-0.158 - beta1min) < 0.01, 'STEP 6: Your beta1min value is not within 0.01 of the target beta1 minimum value. Try improving your beta1guess or reducing the distance between values in your beta1bracket array.' 
     
     
 def test_step_7(tb):
