@@ -204,7 +204,9 @@ def test_step_15(tb):
   num_figures_before = tb.ref('plt.gcf()').number
   tb.execute_cell('step15a')
   num_figures_after = tb.ref('plt.gcf()').number
-  print(num_figures_before, num_figures_after)
+  xlabel = tb.ref('plt.gcf()').xlabel
+  ylabel = tb.ref('plt.gcf()').ylabel
+  print(num_figures_before, num_figures_after, xlabel, ylabel)
 #     yield
 #     num_figures_after = tb.ref('plt.gcf()').number
 #     print(num_figures_before, num_figures_after)
