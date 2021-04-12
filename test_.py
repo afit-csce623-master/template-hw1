@@ -71,7 +71,6 @@ def test_step_4(tb):
     
   beta1bracket = tb.ref('beta1bracket')
   assert isinstance(beta1bracket, np.ndarray), 'STEP 4: beta1bracket is a ' + str(type(beta1bracket)) + '. It should be a np.ndarray.'
-  assert 
     
     
 def test_step_5(tb):
