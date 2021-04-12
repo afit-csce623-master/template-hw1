@@ -156,18 +156,16 @@ def test_step_13(tb):
   tb.execute_cell('step13')
   beta0 = tb.ref('beta0')
   beta1 = tb.ref('beta1')
-#   beta1 = exec('np.' + tb.ref('beta1').resolve())
+  r2 = tb.ref('r2')
+  mse = tb.ref('mse')
+
   assert np.isclose(beta0, 39.93586102117047), 'STEP 13: The value for beta0 is incorrect'
-#   print(tb.ref('beta1').resolve())
-  print(beta1[0])
-  print(tb.ref('r2'))
-  print(tb.ref('mse'))
-  
-#     39.93586102117047
-#   'array([-0.15784473])'
-#   0.6059482578894348
-#   23.943662938603108
+  assert np.isclose(beta1, -0.15784473335365365), 'STEP 13: The value for beta1 is incorrect'
+  assert np.isclose(r2, 0.6059482578894348), 'STEP 13: The value for r2 is incorrect'
+  assert np.isclose(mse, 23.943662938603108), 'STEP 13: The value for mse is incorrect'
+
   assert False
+  
     
 def test_step_14(tb):
   try:
