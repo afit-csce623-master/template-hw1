@@ -123,11 +123,12 @@ def test_step_9(tb):
   finally:
     assert complete, 'STEP 9: not complete.' 
     
-  computeBetas = tb.ref('computeBetas')
-  df = pd.read_csv('https://raw.githubusercontent.com/afit-csce623-master/datasets/main/auto.csv', na_values='?') #classify ? as a character that means NaN
-  df.dropna(inplace=True)
-  betas = computeBetas(df.horsepower, df.mpg)
-  print(betas[0],betas[1])
+#   computeBetas = tb.ref('computeBetas')
+#   df = pd.read_csv('https://raw.githubusercontent.com/afit-csce623-master/datasets/main/auto.csv', na_values='?') #classify ? as a character that means NaN
+#   df.dropna(inplace=True)
+#   betas = computeBetas(df.horsepower, df.mpg)
+  tb.inject("assert betas[0] == 0, invalid beta")
+#   print(betas[0],betas[1])
   assert False
     
     
