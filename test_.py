@@ -70,7 +70,13 @@ def test_step_4(tb):
     assert complete, 'STEP 4: not complete.'
     
   tb.inject("assert isinstance(beta1bracket, np.ndarray), 'STEP 4: beta1bracket is a ' + str(type(beta1bracket)) + '. It should be a np.ndarray.'")
-
+  tb.inject(
+    """
+    assert min(beta1bracket[0],beta1bracket[-1]) <= beta1guess <= (beta1bracket[0],beta1bracket[-1]), \
+      'STEP 4: beta1bracket does not bracket the beta1guess. beta1bracket[0] is ' + beta1bracket[0] + '. beta1bracket[-1] is ' + beta1bracket[1] + \
+      '. beta1guess ' + beta1guess + ' should be between beta1bracket[0] and beta1bracket[-1].'
+    """
+  )
 #   beta1bracket = tb.ref('beta1bracket').resolve()
 #   assert isinstance(beta1bracket, np.ndarray), 'STEP 4: beta1bracket is a ' + str(type(beta1bracket)) + '. It should be a np.ndarray.'
 #   assert min(beta1bracket[0],beta1bracket[-1]) <= beta1guess <= (beta1bracket[0],beta1bracket[-1]), \
