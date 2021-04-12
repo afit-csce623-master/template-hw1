@@ -7,7 +7,7 @@ import contextlib
 from testbook import testbook
 
 
-@contextmanager
+@contextlib.contextmanager
 def assert_plot_figures_added():
     num_figures_before = plt.gcf().number
     yield
