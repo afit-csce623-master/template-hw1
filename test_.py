@@ -98,7 +98,7 @@ def test_step_5(tb):
     else:
       assert False, 'STEP 5: rss1d does not exist or returns an error. The error returned is "' + str(e) + '".'
 
-  assert isinstance(rssbeta1, np.ndarray), 'STEP 5: rss1d returns ' + str(type(rssbeta1)) + '. It should return a numpy.ndarray.'")
+  assert isinstance(rssbeta1, np.ndarray), 'STEP 5: rss1d returns ' + str(type(rssbeta1)) + '. It should return a numpy.ndarray.')
 #   assert rss1d(12., [0., 0.5, 1.0], [98., 12.], [72., 64.])
 #   assert rss1d.shape == beta1bracket.shape, 'STEP 5: 
     
