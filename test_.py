@@ -2,6 +2,7 @@ import pytest
 import hashlib
 import json
 import numpy as np
+import matplotlib.pyplot as plt
 from testbook import testbook
 
 @pytest.fixture(scope='module')
@@ -186,7 +187,12 @@ def test_step_15(tb):
   finally:
     assert complete, 'STEP 15: not complete.' 
     
-  plt.close()
+  num_figures_before = plt.gcf().number
   tb.execute_cell('step15a')
-  assert plt.gcf().number == 1
+  num_figures_after = plt.gcf().number
+  assert num_figures_before < num_figures_after
+  
+  print(num_figures_before, num_figures_after)
+  
+  assert False
   
