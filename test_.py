@@ -93,7 +93,10 @@ def test_step_5(tb):
   )
   tb.inject("assert isinstance(temp_rssbetas, float), 'STEP 9: rss1d(40., 0.1, df.horsepower, df.mpg) returns ' + str(type(temp_rssbetas)) + '. It should return a float.'")
   tb.inject("assert np.isclose(temp_rssbetas, 333689.2200000003), 'STEP 9: rss1d(40., 0.1, df.horsepower, df.mpg) returns the wrong value. Returned ' + temp_rssbetas + '. Should return 333689.2200000003.'")
-    #   tb.inject("assert betas.shape == (2,), 'STEP 9: computeBetas returns an array of the wrong shape. Verify that it returns a 1d array with 2 elements (2,).'")
+  tb.inject("temp_rssbetas = rss1d(40., -0.1, df.horsepower, df.mpg)")
+  tb.inject("assert np.isclose(temp_rssbetas, 25944.739999999998), 'STEP 9: rss1d(40., -0.1, df.horsepower, df.mpg) returns the wrong value. Returned ' + temp_rssbetas + '. Should return 25944.739999999998.'")
+
+#   tb.inject("assert betas.shape == (2,), 'STEP 9: computeBetas returns an array of the wrong shape. Verify that it returns a 1d array with 2 elements (2,).'")
 #   tb.inject("assert np.isclose(betas[0], 39.935861), 'STEP 9: computeBetas function is incorrect. Check beta[0].'")
 #   tb.inject("assert np.isclose(betas[1], -0.157845), 'STEP 9: computeBetas function is incorrect. Check beta[1].'")
     
