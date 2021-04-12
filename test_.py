@@ -160,7 +160,7 @@ def test_step_13(tb):
   mse = tb.ref('mse')
 
   assert np.isclose(beta0, 39.93586102117047), 'STEP 13: The value for beta0 is incorrect'
-  assert np.isclose(beta1, -0.15784473335365365), 'STEP 13: The value for beta1 is incorrect'
+  assert np.isclose(beta1[0], -0.15784473335365365), 'STEP 13: The value for beta1 is incorrect'
   assert np.isclose(r2, 0.6059482578894348), 'STEP 13: The value for r2 is incorrect'
   assert np.isclose(mse, 23.943662938603108), 'STEP 13: The value for mse is incorrect'
 
