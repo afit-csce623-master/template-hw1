@@ -127,6 +127,19 @@ def test_step_9(tb):
 #   df = pd.read_csv('https://raw.githubusercontent.com/afit-csce623-master/datasets/main/auto.csv', na_values='?') #classify ? as a character that means NaN
 #   df.dropna(inplace=True)
 #   betas = computeBetas(df.horsepower, df.mpg)
+  tb.inject(
+    """
+    try:
+      betas = computeBetas(df.horsepower, df.mpg)
+    except Exception as e:
+      if hasattr(e, 'message'):
+        assert False, 'computeBetas does not exist or returns an error. The error returned is ' + e.message + '.'
+      else:
+        assert False, 'computeBetas does not exist or returns an error. The error returned is ' + e + '.'
+    """
+  )
+  tb.inject("assert isinstance(betas, np.ndarray), 'computeBetas returns ' + type(betas) + ' it should return a numpy.ndarray.'")
+  tb.inject("assert betas.shape == (2,), 'computeBetas returns an array of the wrong shape. Verify that it returns a 1d array with 2 elements (2,).'")
   tb.inject("assert np.isclose(betas[0], 39.935861), 'computeBetas function is incorrect. Check beta[0].'")
   tb.inject("assert np.isclose(betas[1], -0.157845), 'computeBetas function is incorrect. Check beta[1].'")
 #   print(betas[0],betas[1])
