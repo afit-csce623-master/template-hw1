@@ -123,10 +123,6 @@ def test_step_9(tb):
   finally:
     assert complete, 'STEP 9: not complete.' 
     
-#   computeBetas = tb.ref('computeBetas')
-#   df = pd.read_csv('https://raw.githubusercontent.com/afit-csce623-master/datasets/main/auto.csv', na_values='?') #classify ? as a character that means NaN
-#   df.dropna(inplace=True)
-#   betas = computeBetas(df.horsepower, df.mpg)
   tb.inject(
     """
     try:
@@ -142,8 +138,6 @@ def test_step_9(tb):
   tb.inject("assert betas.shape == (2,), 'computeBetas returns an array of the wrong shape. Verify that it returns a 1d array with 2 elements (2,).'")
   tb.inject("assert np.isclose(betas[0], 39.935861), 'computeBetas function is incorrect. Check beta[0].'")
   tb.inject("assert np.isclose(betas[1], -0.157845), 'computeBetas function is incorrect. Check beta[1].'")
-#   print(betas[0],betas[1])
-  assert False
     
     
 def test_step_10(tb):
