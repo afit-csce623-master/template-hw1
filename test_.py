@@ -52,7 +52,7 @@ def test_step_3(tb):
   except:
     assert False, 'STEP 3: beta1guess does not exist'
     
-  tb.inject("assert isinstance(beta1guess, float), 'STEP 3: beta1guess is a ' + str(type(beta1bracket)) + '. It should be a float.'")
+  tb.inject("assert isinstance(beta1guess, float), 'STEP 3: beta1guess is a ' + str(type(beta1guess)) + '. It should be a float.'")
 
     
 # def test_step_4(tb):
