@@ -203,7 +203,7 @@ def test_step_15(tb):
 #   with assert_plot_figures_added():
   tb.execute_cell('step15a')
   num_figures_before = tb.ref('plt.gcf()').number
-  print(plt.gcf().xlabel, plt.gcf().ylabel)
+  print(num_figures_before)
 #     yield
 #     num_figures_after = tb.ref('plt.gcf()').number
 #     print(num_figures_before, num_figures_after)
